@@ -12,6 +12,8 @@ public:
 
 	int moneyAvailable = 0;
 	UniversityVendingMachine()
+	
+	//Input the Items and their Respected ItemCodes 
 	{
         itemCodes["A1"] = "cookie";
     	itemCodes["A2"] = "iPhone charger";
@@ -25,6 +27,7 @@ public:
 		
 	}
 
+	//Added a getItemPrice method for getting the values of the respected items
 	string getItemPrice(string x)
 	{
 
@@ -40,12 +43,14 @@ public:
 		return "Item is not available or the item number not valid";
 
 	}
-
+	
+	//addMoney for adding the money to the Vending Machine
 	void addMoney(int amount)
 	{
 		moneyAvailable += amount;
 	}
 
+	//Condition - If there is less money add the required money to get the item and then of you have added more money it will return back the balance amount
 	string buy(string item)
 	{
 		if(moneyAvailable < items[itemCodes[item]])
@@ -65,6 +70,7 @@ public:
 
 };
 
+//listMenu method where you have to perform the operations which you need
 void listMenu()
 {
     cout << "Menu" << endl;
@@ -75,9 +81,9 @@ void listMenu()
     cout << "Enter the operation number" << endl;
 }
 
+//Print the Output and the operations for the code
 int main()
-{
-    
+{    
     UniversityVendingMachine obj1;
     listMenu();
     int operation;
@@ -86,12 +92,11 @@ int main()
     {
         if(operation == 1)
         {
-
-			for(auto it = obj1.itemCodes.begin(); it != obj1.itemCodes.end(); it++)
-			{
-				cout << it->first << ": " << it->second << ". ";
-			}
-			cout << endl;
+		for(auto it = obj1.itemCodes.begin(); it != obj1.itemCodes.end(); it++)
+		{
+			cout << it->first << ": " << it->second << ". ";
+		}
+		cout << endl;
             cout << "Enter ItemCode" << endl;
             string ic;
             cin >> ic;
