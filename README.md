@@ -3,8 +3,9 @@ This is a Vending Machine that allows people to buy Products by entering the Ite
 inserting the money required for that Item
 
 ### Lists of Items in the Vending Machine
+
 |Item Code | Item             | Cost |
---------------------------
+| -------- | ---------------- | ---- |
 | A1       | Cookie           | 100  |
 | A2       | iPhone Charger   | 100  |
 | C5       | Cookie           | 100  |
