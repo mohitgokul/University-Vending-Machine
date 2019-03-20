@@ -4,12 +4,12 @@ inserting the money required for that Item
 
 ### Lists of Items in the Vending Machine
 
-|Item Code | Item             | Cost |
-| -------- | ---------------- | ---- |
-| A1       | Cookie           | 100  |
-| A2       | iPhone Charger   | 100  |
-| C5       | Cookie           | 100  |
-| D4       | Cookie           | 100  |
+|Item Code | Item             | Cost  |
+| -------- | ---------------- | ----- | 
+| A1       | Cookie           | 100   |
+| A2       | iPhone Charger   | 1500  |
+| C5       | Cookie           | 200   |
+| D4       | Cookie           | 150   |
 
 
 
