@@ -12,10 +12,8 @@ public:
 
 	int moneyAvailable = 0;
 	UniversityVendingMachine()
-	
-	//Input the Items and their Respected ItemCodes 
 	{
-        itemCodes["A1"] = "cookie";
+      itemCodes["A1"] = "cookie";
     	itemCodes["A2"] = "iPhone charger";
     	itemCodes["C5"] = "potato chips";
     	itemCodes["D4"] = "chewing gum";
@@ -27,7 +25,6 @@ public:
 		
 	}
 
-	//Added a getItemPrice method for getting the values of the respected items
 	string getItemPrice(string x)
 	{
 
@@ -43,14 +40,12 @@ public:
 		return "Item is not available or the item number not valid";
 
 	}
-	
-	//addMoney for adding the money to the Vending Machine
+
 	void addMoney(int amount)
 	{
 		moneyAvailable += amount;
 	}
 
-	//Condition - If there is less money add the required money to get the item and then of you have added more money it will return back the balance amount
 	string buy(string item)
 	{
 		if(moneyAvailable < items[itemCodes[item]])
@@ -64,43 +59,45 @@ public:
 			ret += "\n";
 			ret += "Balance: sp " ;
 			ret += to_string(moneyAvailable); 
-            return ret;
+      return ret;
 		}
 	}
 
 };
 
-//listMenu method where you have to perform the operations which you need
 void listMenu()
 {
     cout << "Menu" << endl;
     cout << "1. getItemPrice" << endl;
     cout << "2. addMoney" << endl;
     cout << "3. buy" << endl;
-    cout << "4. Quit" << endl;
     cout << "Enter the operation number" << endl;
 }
 
-//Print the Output and the operations for the code
 int main()
-{    
+{
+    
     UniversityVendingMachine obj1;
     listMenu();
     int operation;
     cin >> operation;
-    while (operation != 4)
+    bool quit = false;
+    while (!quit)
     {
         if(operation == 1)
         {
-		for(auto it = obj1.itemCodes.begin(); it != obj1.itemCodes.end(); it++)
-		{
-			cout << it->first << ": " << it->second << ". ";
-		}
-		cout << endl;
+
+			for(auto it = obj1.itemCodes.begin(); it != obj1.itemCodes.end(); it++)
+			{
+				cout << it->first << ": " << it->second << ". ";
+			}
+			cout << endl;
             cout << "Enter ItemCode" << endl;
             string ic;
             cin >> ic;
             cout << obj1.getItemPrice(ic) << endl;
+            listMenu();
+            cin >> operation;
         }
         else if(operation == 2)
         {
@@ -108,6 +105,8 @@ int main()
             int amt;
             cin >> amt;
             obj1.addMoney(amt);
+            listMenu();
+            cin >> operation;
         }
         else if (operation == 3)
         {
@@ -116,9 +115,10 @@ int main()
             cin >> ic;
             
             cout << obj1.buy(ic) << endl;
+            quit = true;
         }
-        listMenu();
-        cin >> operation;
+        
+        
     }
     return 0;
 }
